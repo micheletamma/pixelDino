@@ -9,6 +9,7 @@ import type { ThemeName } from "./scene.ts";
 
 const HIT_PADDING = 3; // pixel logici di tolleranza intorno ai bersagli
 const TOP_MARGIN = 22; // spazio in alto riservato alla barra con il suggerimento (pixel logici)
+const BUBBLE_MARGIN = 4; // pixel logici di distanza minima dal fumetto
 const ROUND_DELAY = 800; // ms tra un round e il successivo
 const LEVEL_DELAY = 2200; // ms tra un livello e il successivo
 
@@ -117,7 +118,7 @@ export class Game {
     return Math.max(width, height) / 2;
   }
 
-  /** Cerca un punto libero, rilassando via via la distanza minima. */
+  /** Cerca un punto libero, rilassando via via la distanza minima e evitando il fumetto visibile. */
   private findSpot(spec: TargetSpec, placed: readonly { x: number; y: number; r: number }[]): { x: number; y: number } {
     const w = this.canvas.width;
     const h = this.canvas.height;
@@ -127,11 +128,29 @@ export class Game {
     const maxX = Math.max(w - size.width / 2 - 2, minX);
     const minY = Math.min(TOP_MARGIN + size.height / 2, h / 2);
     const maxY = Math.max(h - size.height / 2 - 2, minY);
+
+    // Zona del fumetto in pixel logici, con un po' di margine.
+    const area = this.bubble.area;
+    const k = this.canvas.width / this.canvas.getBoundingClientRect().width;
+    const avoid = area
+      ? { left: area.left * k - BUBBLE_MARGIN, right: area.right * k + BUBBLE_MARGIN, top: area.top * k - BUBBLE_MARGIN, bottom: area.bottom * k + BUBBLE_MARGIN }
+      : null;
+    const overlapsBubble = (p: { x: number; y: number }): boolean =>
+      avoid !== null &&
+      p.x + size.width / 2 > avoid.left &&
+      p.x - size.width / 2 < avoid.right &&
+      p.y + size.height / 2 > avoid.top &&
+      p.y - size.height / 2 < avoid.bottom;
+
     let spot = { x: minX, y: minY };
-    for (let gap = 8; gap >= -10; gap -= 3) {
-      for (let tries = 0; tries < 60; tries++) {
-        spot = { x: minX + Math.random() * (maxX - minX), y: minY + Math.random() * (maxY - minY) };
-        if (placed.every((p) => Math.hypot(p.x - spot.x, p.y - spot.y) >= r + p.r + gap)) return spot;
+    // Prima si evita anche il fumetto; se non c'è proprio posto, si rinuncia a questo vincolo.
+    for (const useAvoid of [true, false]) {
+      for (let gap = 8; gap >= -10; gap -= 3) {
+        for (let tries = 0; tries < 60; tries++) {
+          spot = { x: minX + Math.random() * (maxX - minX), y: minY + Math.random() * (maxY - minY) };
+          if (useAvoid && overlapsBubble(spot)) continue;
+          if (placed.every((p) => Math.hypot(p.x - spot.x, p.y - spot.y) >= r + p.r + gap)) return spot;
+        }
       }
     }
     return spot;

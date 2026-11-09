@@ -1,6 +1,14 @@
 /** Dopo questo tempo (ms) il fumetto sparisce da solo. */
 const HIDE_AFTER = 6000;
 
+/** Rettangolo in pixel dello schermo. */
+export interface Area {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+}
+
 /** Fumetto HTML che si sposta con una transizione CSS verso il bersaglio cliccato. */
 export class Bubble {
   private readonly root: HTMLElement;
@@ -8,6 +16,8 @@ export class Bubble {
   private readonly text: HTMLElement;
   private visible = false;
   private hideTimer: number | undefined;
+  /** Zona occupata dal fumetto (codina compresa); null se non è visibile. */
+  area: Area | null = null;
 
   constructor() {
     this.root = document.getElementById("bubble") as HTMLElement;
@@ -27,6 +37,10 @@ export class Bubble {
     const cx = Math.min(Math.max(x, half), window.innerWidth - half);
     const cy = Math.max(y, this.box.offsetHeight + 28);
     const transform = `translate(${cx}px, ${cy}px)`;
+    const w = this.box.offsetWidth;
+    const h = this.box.offsetHeight;
+    // Il riquadro sta sopra il punto (14px di distanza + codina): vedi .bubble-box in style.css.
+    this.area = { left: cx - w / 2, right: cx + w / 2, top: cy - 14 - h, bottom: cy };
 
     if (!this.visible) {
       // Prima apparizione: nessuna transizione, compare già nel punto giusto.
@@ -42,6 +56,7 @@ export class Bubble {
 
   hide(): void {
     window.clearTimeout(this.hideTimer);
+    this.area = null;
     this.root.hidden = true;
     this.visible = false;
   }
