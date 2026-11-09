@@ -12,7 +12,7 @@ const BOTTOM_MARGIN = 24; // margine di sicurezza in basso (barre del browser, t
 const TOP_MARGIN = 22; // spazio in alto riservato alla barra con il suggerimento (pixel logici)
 const BUBBLE_MARGIN = 4; // pixel logici di distanza minima dal fumetto
 const ROUND_DELAY = 800; // ms tra un round e il successivo
-const LEVEL_DELAY = 2200; // ms tra un livello e il successivo
+const LEVEL_DELAY = 4500; // ms di attesa a fine livello, per leggere l'ultima frase
 
 interface LiveTarget {
   spec: TargetSpec;
@@ -221,6 +221,7 @@ export class Game {
     if (levelDone) {
       this.hudHint.textContent = this.levelIndex + 1 >= levels.length ? "Hai finito tutti i livelli!" : "Livello superato!";
       this.timer = window.setTimeout(() => {
+        this.bubble.hide(); // il nuovo livello parte senza il fumetto del precedente
         this.levelIndex++;
         if (this.levelIndex >= levels.length) {
           this.levelIndex = 0;
