@@ -74,10 +74,10 @@ export const levels: readonly LevelSpec[] = [
         ],
       },
       {
-        hint: "Dinosauro verde o dinosauro rosa?",
+        hint: "Dinosauro verde o dinosauro viola?",
         targets: [
           { art: dino("green", 2), kind: "advance", at: LEFT, phrase: "Verde! Come una foglia che ti ama." },
-          { art: dino("pink", 2), kind: "advance", at: RIGHT, phrase: "Rosa! Gusto impeccabile, come sempre." },
+          { art: dino("purple", 2), kind: "advance", at: RIGHT, phrase: "Viola! Gusto impeccabile, come sempre." },
         ],
       },
       {
@@ -96,9 +96,9 @@ export const levels: readonly LevelSpec[] = [
     phrases: [],
     rounds: [
       {
-        hint: "Trova il dinosauro ROSA!",
+        hint: "Trova il dinosauro VIOLA!",
         targets: [
-          { art: dino("pink"), kind: "advance", phrase: "Eccolo! Occhio da velociraptor." },
+          { art: dino("purple"), kind: "advance", phrase: "Eccolo! Occhio da velociraptor." },
           { art: dino("green"), kind: "decoy" },
           { art: dino("blue"), kind: "decoy" },
           { art: dino("yellow"), kind: "decoy" },
@@ -108,7 +108,7 @@ export const levels: readonly LevelSpec[] = [
         hint: "Adesso trova il dinosauro BLU!",
         targets: [
           { art: dino("blue"), kind: "advance", phrase: "Blu! Hai l'occhio lungo, Annina." },
-          { art: dino("pink"), kind: "decoy" },
+          { art: dino("purple"), kind: "decoy" },
           { art: dino("green"), kind: "decoy" },
           { art: dino("yellow"), kind: "decoy" },
         ],

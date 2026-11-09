@@ -25,7 +25,7 @@ const dinoSprite: Sprite = [
 /** Colori disponibili: per un nuovo dinosauro aggiungi una voce qui. */
 export const dinoColors = {
   green: { G: "#3fae4a", D: "#1f6b2c", L: "#a6e08a" },
-  pink: { G: "#f27ab0", D: "#a8346f", L: "#ffd1e6" },
+  purple: { G: "#9b59d0", D: "#5b2a8a", L: "#dcc2f2" },
   blue: { G: "#4a90e2", D: "#1f4f8f", L: "#b9d8ff" },
   yellow: { G: "#f2c744", D: "#a8821a", L: "#fff0a0" },
 } as const;

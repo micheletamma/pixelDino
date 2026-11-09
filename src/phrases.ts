@@ -3,24 +3,24 @@
 
 /** Livello 1: clicca il dinosauro. */
 export const tapPhrases: readonly string[] = [
-  "Rawr! Mi hai trovato, Annina!",
+  "Rawr! Mi hai trovato, Annina, che bell'antenna!",
   "Il tuo dinosauro preferito sono io. Anzi, Bik.",
-  "Ahia! Dolcissimo ahia.",
-  "Rawr significa «ti voglio bene» in dinosauro.",
-  "Hai un tocco da paleontologa!",
-  "Sei più bella di un fossile intatto.",
+  "Ahia! Accidenti, mi hai fatto male! Ma ti perdono.",
+  "Rawr significa «ti amo» in dinosauro.",
+  "Hai un tocco da paleontologa psicologa!",
+  "Sei più bella di un orecchio di mucca!",
 ];
 
 /** Livello 2: cuori. */
 export const heartPhrases: readonly string[] = [
-  "Un cuore! Lo metto in tasca.",
-  "Ne ho trovato un altro per te.",
-  "Questo vale doppio: è pieno di Bik.",
-  "Cuori ovunque, colpa tua.",
-  "Ne raccogli più tu di un T-rex affamato.",
-  "Occhio, questo batte forte!",
-  "Quasi tutti! Sei una raccoglitrice nata.",
-  "L'ultimo è sempre il più dolce.",
+  "Se fuori piove, io dentro nevico.",
+  "Te l’ho già detto una volta, mi ricordavi il mare, le luci di Natale, gli schiaffi sul sedere e lo spazzolino uguale, la Panda manuale, bruciare in una notte come una cattedrale. ",
+  "Se tornassero i tirannosauri io vorrei stare con te, anche sott’acqua con te, mentre ci mangiano eh...",
+  "Che mi hai portato via da un lago nero e denso ma era soltanto un brutto sogno se ci penso... che stare insieme a te è come stare sul tetto, dell’universo.",
+  "E forse faremo un figlio all’isola del Giglio, sopra una barca a vela fatta coi nostri vestiti tolti.",
+  "E sei stupenda quando parli, quando ridi e piangi e sei stupenda quando guardi con quegli occhi grandi e tutto il resto sembra diventare piccolissimo.",
+  "Anche se ho gli occhi perduti in mezzo alla giungla con gli alberi neri e il cielo che urla.",
+  "Che mi hai tirato su quando sembravo un puzzle e sai disinnescarmi quando faccio il pazzo...che stare insieme a te è come stare su un razzo, Verso lo spazio.",
 ];
 
 /** Livello 5: uova. */
