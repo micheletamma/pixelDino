@@ -105,11 +105,11 @@ export const levels: readonly LevelSpec[] = [
         ],
       },
       {
-        hint: "Adesso trova il dinosauro BLU!",
+        hint: "Adesso trova il dinosauro VERDE!",
         targets: [
-          { art: dino("blue"), kind: "advance", phrase: "Blu! Hai l'occhio lungo, Annina." },
+          { art: dino("green"), kind: "advance", phrase: "Verde! Hai l'occhio lungo, Annina." },
           { art: dino("purple"), kind: "decoy" },
-          { art: dino("green"), kind: "decoy" },
+          { art: dino("blue"), kind: "decoy" },
           { art: dino("yellow"), kind: "decoy" },
         ],
       },
