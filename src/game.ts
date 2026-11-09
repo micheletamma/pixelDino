@@ -8,6 +8,7 @@ import { drawSprite } from "./sprite.ts";
 import type { ThemeName } from "./scene.ts";
 
 const HIT_PADDING = 3; // pixel logici di tolleranza intorno ai bersagli
+const BOTTOM_MARGIN = 24; // margine di sicurezza in basso (barre del browser, tacca home di iPhone), pixel logici
 const TOP_MARGIN = 22; // spazio in alto riservato alla barra con il suggerimento (pixel logici)
 const BUBBLE_MARGIN = 4; // pixel logici di distanza minima dal fumetto
 const ROUND_DELAY = 800; // ms tra un round e il successivo
@@ -127,7 +128,7 @@ export class Game {
     const minX = Math.min(size.width / 2 + 2, w / 2);
     const maxX = Math.max(w - size.width / 2 - 2, minX);
     const minY = Math.min(TOP_MARGIN + size.height / 2, h / 2);
-    const maxY = Math.max(h - size.height / 2 - 2, minY);
+    const maxY = Math.max(h - size.height / 2 - BOTTOM_MARGIN, minY);
 
     // Zona del fumetto in pixel logici, con un po' di margine.
     const area = this.bubble.area;

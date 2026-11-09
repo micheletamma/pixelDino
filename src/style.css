@@ -11,6 +11,7 @@ body {
   display: block;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* su mobile esclude le barre del browser */
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   cursor: pointer;
