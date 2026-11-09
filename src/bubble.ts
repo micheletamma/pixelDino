@@ -1,4 +1,4 @@
-/** Fumetto HTML che si sposta con una transizione CSS verso il punto cliccato. */
+/** Fumetto HTML che si sposta con una transizione CSS verso il bersaglio cliccato. */
 export class Bubble {
   private readonly root: HTMLElement;
   private readonly box: HTMLElement;
@@ -32,5 +32,10 @@ export class Bubble {
       return;
     }
     this.root.style.transform = transform;
+  }
+
+  hide(): void {
+    this.root.hidden = true;
+    this.visible = false;
   }
 }

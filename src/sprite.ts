@@ -7,7 +7,10 @@ export function spriteSize(sprite: Sprite): { width: number; height: number } {
   return { width: sprite[0]?.length ?? 0, height: sprite.length };
 }
 
-/** Disegna uno sprite con l'angolo in alto a sinistra in (x, y). `flip` lo specchia in orizzontale. */
+/**
+ * Disegna uno sprite con l'angolo in alto a sinistra in (x, y).
+ * `flip` lo specchia in orizzontale, `scale` ingrandisce ogni pixel (intero).
+ */
 export function drawSprite(
   ctx: CanvasRenderingContext2D,
   sprite: Sprite,
@@ -15,6 +18,7 @@ export function drawSprite(
   x: number,
   y: number,
   flip = false,
+  scale = 1,
 ): void {
   const { width } = spriteSize(sprite);
   sprite.forEach((row, ry) => {
@@ -22,7 +26,7 @@ export function drawSprite(
       const color = palette[row[rx] ?? "."];
       if (!color) continue;
       ctx.fillStyle = color;
-      ctx.fillRect(x + (flip ? width - 1 - rx : rx), y + ry, 1, 1);
+      ctx.fillRect(x + (flip ? width - 1 - rx : rx) * scale, y + ry * scale, scale, scale);
     }
   });
 }
