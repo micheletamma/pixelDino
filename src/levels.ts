@@ -69,15 +69,15 @@ export const levels: readonly LevelSpec[] = [
       {
         hint: "Colazione a letto o pizza sul divano?",
         targets: [
-          { art: cup(4), kind: "advance", at: LEFT, phrase: "Colazione a letto: preparo io, tu ordini. Le briciole le dividiamo." },
-          { art: pizza(4), kind: "advance", at: RIGHT, phrase: "Pizza sul divano: scegli tu il film, io rubo il bordo." },
+          { art: cup(4), kind: "advance", at: LEFT, phrase: "Un cornetto per un dinosauro affamato!" },
+          { art: pizza(4), kind: "advance", at: RIGHT, phrase: "Italpizza sul divano, i dinosauri non mangiano a tavola!" },
         ],
       },
       {
         hint: "Dinosauro verde o dinosauro viola?",
         targets: [
-          { art: dino("green", 2), kind: "advance", at: LEFT, phrase: "Verde! Come una foglia che ti ama." },
-          { art: dino("purple", 2), kind: "advance", at: RIGHT, phrase: "Viola! Gusto impeccabile, come sempre." },
+          { art: dino("green", 2), kind: "advance", at: LEFT, phrase: "Verde! Questo è il Bik!" },
+          { art: dino("purple", 2), kind: "advance", at: RIGHT, phrase: "Viola! IDEM!" },
         ],
       },
       {
@@ -98,7 +98,7 @@ export const levels: readonly LevelSpec[] = [
       {
         hint: "Trova il dinosauro VIOLA!",
         targets: [
-          { art: dino("purple"), kind: "advance", phrase: "Eccolo! Occhio da velociraptor." },
+          { art: dino("purple"), kind: "advance", phrase: "Il colore preferito del mio dinosauro preferito!" },
           { art: dino("green"), kind: "decoy" },
           { art: dino("blue"), kind: "decoy" },
           { art: dino("yellow"), kind: "decoy" },
@@ -107,7 +107,7 @@ export const levels: readonly LevelSpec[] = [
       {
         hint: "Adesso trova il dinosauro VERDE!",
         targets: [
-          { art: dino("green"), kind: "advance", phrase: "Verde! Hai l'occhio lungo, Annina." },
+          { art: dino("green"), kind: "advance", phrase: "Verde! E se il mondo finisse domani?" },
           { art: dino("purple"), kind: "decoy" },
           { art: dino("blue"), kind: "decoy" },
           { art: dino("yellow"), kind: "decoy" },
@@ -123,7 +123,7 @@ export const levels: readonly LevelSpec[] = [
     rounds: [
       {
         hint: "Ultimo clic: il dinosauro gigante!",
-        targets: [{ art: dino("green", 3), kind: "advance", phrase: "Complimenti, Annina! Hai vinto tutto." }],
+        targets: [{ art: dino("green", 3), kind: "advance", phrase: "Complimenti, moglie! Hai vinto tutto il mio amore!" }],
       },
     ],
   },

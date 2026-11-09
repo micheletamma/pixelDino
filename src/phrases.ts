@@ -30,7 +30,7 @@ export const decoyPhrases: readonly string[] = [
   "Sbagliato, ma ti perdono con un bacio.",
   "Quasi! Ma no.",
   "Rawr? Non sono io quello giusto!",
-  "Riprova: questo non ha il tuo stesso fiuto.",
+  "Riprova: questo non ha la tua stessa antenna!",
 ];
 
 /** Mazzo di frasi: ogni frase esce una volta prima che il mazzo si rimescoli. */
