@@ -175,7 +175,10 @@ export class Game {
 
     // Dall'ultimo disegnato (in primo piano) al primo.
     const hit = [...this.sortedTargets()].reverse().find((t) => this.contains(t, x, y));
-    if (!hit) return;
+    if (!hit) {
+      this.bubble.hide(); // click sullo sfondo: il fumetto sparisce
+      return;
+    }
     this.tap(hit, performance.now());
   }
 
