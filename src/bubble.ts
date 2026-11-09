@@ -1,9 +1,13 @@
+/** Dopo questo tempo (ms) il fumetto sparisce da solo. */
+const HIDE_AFTER = 6000;
+
 /** Fumetto HTML che si sposta con una transizione CSS verso il bersaglio cliccato. */
 export class Bubble {
   private readonly root: HTMLElement;
   private readonly box: HTMLElement;
   private readonly text: HTMLElement;
   private visible = false;
+  private hideTimer: number | undefined;
 
   constructor() {
     this.root = document.getElementById("bubble") as HTMLElement;
@@ -14,6 +18,8 @@ export class Bubble {
   /** Mostra `message` con la codina puntata su (x, y), in pixel dello schermo. */
   say(message: string, x: number, y: number): void {
     this.text.textContent = message;
+    window.clearTimeout(this.hideTimer);
+    this.hideTimer = window.setTimeout(() => this.hide(), HIDE_AFTER);
     if (!this.visible) this.root.hidden = false;
 
     // Evita che il fumetto esca dallo schermo.
@@ -35,6 +41,7 @@ export class Bubble {
   }
 
   hide(): void {
+    window.clearTimeout(this.hideTimer);
     this.root.hidden = true;
     this.visible = false;
   }
