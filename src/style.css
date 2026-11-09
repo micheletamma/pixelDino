@@ -126,17 +126,19 @@ body {
 
 .screen-text {
   margin: 0;
-  max-width: 24em;
-  font-size: clamp(22px, 5vw, 40px);
+  max-width: 22em;
+  font-family: "Pixelify Sans", "Courier New", ui-monospace, monospace;
+  font-size: clamp(26px, 5.5vw, 46px);
   font-weight: 700;
   line-height: 1.35;
-  text-shadow: 4px 4px 0 #222;
+  color: #1f2a5c;
 }
 
 .screen-hint {
   margin: 0;
-  font-size: 16px;
-  color: #222;
+  font-family: "Pixelify Sans", "Courier New", ui-monospace, monospace;
+  font-size: 18px;
+  color: #1f2a5c;
   animation: blink 1.2s steps(2, start) infinite;
 }
 
