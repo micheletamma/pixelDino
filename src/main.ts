@@ -1,6 +1,7 @@
 import "./style.css";
 import { Bubble } from "./bubble.ts";
 import { Game } from "./game.ts";
+import { setupMessage } from "./message.ts";
 import { hideScreen, showScreen } from "./screens.ts";
 
 /** 1 pixel logico = 4 pixel dello schermo. */
@@ -16,6 +17,9 @@ function fitCanvas(): void {
 }
 fitCanvas();
 
+// Dopo il dinosauro gigante parte il videomessaggio; poi compare la schermata finale.
+const message = setupMessage(() => showScreen(finale));
+
 const game = new Game(
   {
     canvas,
@@ -23,7 +27,7 @@ const game = new Game(
     hudLevel: document.getElementById("hud-level") as HTMLElement,
     hudHint: document.getElementById("hud-hint") as HTMLElement,
   },
-  () => showScreen(finale),
+  () => message.play(),
 );
 game.start(); // il gioco parte dietro la schermata di benvenuto
 
