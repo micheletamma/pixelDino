@@ -1,7 +1,7 @@
-import { cup, egg, heart, pizza } from "./art.ts";
+import { cup, heart, pizza } from "./art.ts";
 import type { Art } from "./art.ts";
 import { dino } from "./dinos.ts";
-import { eggPhrases, heartPhrases, tapPhrases } from "./phrases.ts";
+import { heartPhrases, tapPhrases } from "./phrases.ts";
 import type { ThemeName } from "./scene.ts";
 
 /**
@@ -116,12 +116,11 @@ export const levels: readonly LevelSpec[] = [
     ],
   },
   {
-    // 5) Uova da raccogliere, poi un ultimo dinosauro gigante.
-    title: "Uova e sorpresa",
+    // 5) Sorpresa finale: un ultimo dinosauro gigante.
+    title: "Sorpresa",
     theme: "night",
-    phrases: eggPhrases,
+    phrases: [],
     rounds: [
-      { hint: "Raccogli tutte le uova!", targets: many(5, (i) => ({ art: egg(i, 3), kind: "collect" })) },
       {
         hint: "Ultimo clic: il dinosauro gigante!",
         targets: [{ art: dino("green", 3), kind: "advance", phrase: "Complimenti, Annina! Hai vinto tutto." }],

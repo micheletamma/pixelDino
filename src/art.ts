@@ -29,34 +29,6 @@ export const heart = (scale = 3): Art => ({
   ],
 });
 
-const EGG_COLORS: readonly (readonly [string, string])[] = [
-  ["#f7efe0", "#c9a66b"],
-  ["#bfe3ff", "#4a90e2"],
-  ["#ffd3e8", "#e0589a"],
-  ["#d8f2c2", "#5aa83b"],
-  ["#fff0a0", "#e0a020"],
-];
-
-/** Uovo con macchioline; `variant` sceglie i colori (0–4). */
-export const egg = (variant = 0, scale = 3): Art => {
-  const [base, spots] = EGG_COLORS[variant % EGG_COLORS.length] ?? EGG_COLORS[0] ?? ["#fff", "#999"];
-  return {
-    scale,
-    palette: { E: base, P: spots, O: "#8a7048" },
-    sprite: [
-      "...EE...",
-      "..EEEE..",
-      ".EEEEEE.",
-      ".EEPEEE.",
-      "EEEEEEEE",
-      "EEEEPEEE",
-      "EEEEEEEE",
-      ".EEEEEE.",
-      "..EEEE..",
-    ],
-  };
-};
-
 export const cup = (scale = 4): Art => ({
   scale,
   palette: { B: "#f4f4f4", C: "#6b3e1f", S: "rgba(255,255,255,0.85)" },

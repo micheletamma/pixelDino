@@ -23,16 +23,6 @@ export const heartPhrases: readonly string[] = [
   "Che mi hai tirato su quando sembravo un puzzle e sai disinnescarmi quando faccio il pazzo...che stare insieme a te è come stare su un razzo, Verso lo spazio.",
 ];
 
-/** Livello 5: uova. */
-export const eggPhrases: readonly string[] = [
-  "Un uovo! Ora una frittata?",
-  "Shh, questo si sta schiudendo.",
-  "Attenta, sono delicate come il mio cuore davanti a te.",
-  "Questo ha le lentiggini, come un vero dinosauro.",
-  "Ne manca uno: forse è finito sotto il divano.",
-  "Tutte al sicuro. Brava mamma dino!",
-];
-
 /** Livello 4: quando clicchi il dinosauro sbagliato. */
 export const decoyPhrases: readonly string[] = [
   "Quello è un impostore!",
