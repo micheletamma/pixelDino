@@ -12,7 +12,7 @@ const BOTTOM_MARGIN = 24; // margine di sicurezza in basso (barre del browser, t
 const TOP_MARGIN = 22; // spazio in alto riservato alla barra con il suggerimento (pixel logici)
 const BUBBLE_MARGIN = 4; // pixel logici di distanza minima dal fumetto
 const ROUND_DELAY = 800; // ms tra un round e il successivo
-const LEVEL_DELAY = 4500; // ms di attesa a fine livello, per leggere l'ultima frase
+const LEVEL_DELAY = 2200; // ms di attesa a fine livello, per leggere l'ultima frase
 
 interface LiveTarget {
   spec: TargetSpec;
